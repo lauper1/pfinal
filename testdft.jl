@@ -41,7 +41,7 @@ end
 
 #hacer uno similar para coseno
 
-facts("intervalos complejos") do
+facts("intervalos con complejos") do
 a=Intervalo(0,1)
 b=Intervalo(1,3)
 c=Intervalo(0,2)
