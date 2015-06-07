@@ -109,6 +109,14 @@ function *(x::Intervalo, y::Intervalo)
     r 
 end
 
+function ==(x::Intervalo, y::Intervalo)
+if x.a==y.a &&x.b==y.b
+return true
+else 
+return false
+end
+end
+
 
 function /(x::Intervalo, y::Intervalo)
     if y.a<0 && y.b>0
@@ -303,13 +311,20 @@ end
 ######################
 
 
-export IC, +,-,*,/,^,conjg, norm, expi, abs
+export IC, +,-,*,/,^,conjg, norm, expi, absn
 
 
 
 type IC
 R
 I
+end
+function==(a::IC, b::IC)
+if a.R==b.R && a.I==b.I
+return true
+else 
+return false
+end
 end
 
 
@@ -323,7 +338,7 @@ end
 *(a::IC, b::IC)=IC(a.R*b.R-a.I*b.I, a.I*b.R+a.R*b.I)
 
 
-conjg(a::IC)=IC(a.R, a.I*-1)
+conjg(a::IC)=IC(a.R, -1*a.I)
 
 absn(a::IC)=(a.R^2+a.I^2)^(1/2)
 
