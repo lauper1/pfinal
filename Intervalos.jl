@@ -216,8 +216,8 @@ end
 
 
 
-function absn(x::Intervalo)
-    Intervalo(absn(x.a), absn(x.b))
+function norm(x::Intervalo)
+    Intervalo(norm(x.a), norm(x.b))
 end
 
 function monot(x::Intervalo, f::Function)
@@ -311,8 +311,7 @@ end
 ######################
 
 
-export IC, +,-,*,/,^,conjg, norm, expi, absn
-
+export IC, +,-,*,/,^,conjg, norm, expi
 
 
 type IC
@@ -340,7 +339,7 @@ end
 
 conjg(a::IC)=IC(a.R, -1*a.I)
 
-absn(a::IC)=(a.R^2+a.I^2)^(1/2)
+norm(a::IC)=(a.R^2+a.I^2)^(1/2)
 
 #la exponencial imaginaria
 
